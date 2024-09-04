@@ -1,10 +1,25 @@
-﻿namespace ScraperApp
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using ScraperApp.Extensions;
+
+namespace ScraperApp
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var host = Host.CreateDefaultBuilder(args)
+                .AddConfiguration()
+                .AddScraperClient()
+                .AddMapping()
+                .AddLogging()
+                .Build();
+
+            var client = host.Services.GetRequiredService<IScraperClient>();
+            var result = await client.GetShow(1);
+
+            await client.GetShow(-1);
+
         }
     }
 }

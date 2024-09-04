@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScraperApp", "ScraperApp\ScraperApp.csproj", "{4F3D3FFA-CB70-49B7-9FE0-2759CBC3099C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScraperApp", "ScraperApp\ScraperApp.csproj", "{4F3D3FFA-CB70-49B7-9FE0-2759CBC3099C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapperApp.Tests", "ScrapperApp.Tests\ScrapperApp.Tests.csproj", "{275FF7C8-9BA1-4A1A-9F48-9D7EFC45D691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrapperApp.Tests", "ScrapperApp.Tests\ScrapperApp.Tests.csproj", "{275FF7C8-9BA1-4A1A-9F48-9D7EFC45D691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
