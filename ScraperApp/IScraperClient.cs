@@ -1,4 +1,5 @@
-﻿using ScraperApp.Models;
+﻿using LanguageExt;
+using ScraperApp.Models;
 
 namespace ScraperApp;
 
@@ -13,5 +14,5 @@ public interface IScraperClient
     /// </summary>
     /// <param name="showId">Show id used by external API</param>
     /// <returns></returns>
-    Task<TvShow?> GetShow(int showId);
+    Task<Option<TvShow>> GetShow(int showId);
 }

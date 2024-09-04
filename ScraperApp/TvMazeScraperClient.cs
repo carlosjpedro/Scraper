@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using AutoMapper;
+using LanguageExt;
 using Microsoft.Extensions.Logging;
 using ScraperApp.Dtos;
 using ScraperApp.Models;
@@ -24,7 +25,7 @@ public class TvMazeScraperClient : IScraperClient
         _logger = logger;
         _mapper = mapper;
     }
-    public async Task<TvShow?> GetShow(int showId)
+    public async Task<Option<TvShow>> GetShow(int showId)
     {
         _logger.LogInformation("Requesting show {showId} to the API", showId);
         try
@@ -34,7 +35,7 @@ public class TvMazeScraperClient : IScraperClient
             if (result == default)
             {
                 _logger.LogWarning("API did not return data for showId {showId}", showId);
-                return null;
+                return Option<TvShow>.None;
             }
 
             _logger.LogInformation("API returned data for show {showId}, {result.Name}", showId, result.Name);
@@ -43,7 +44,7 @@ public class TvMazeScraperClient : IScraperClient
         catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
         {
             _logger.LogWarning("API did not return data for showId {showId}", showId);
-            return null;
+            return Option<TvShow>.None;
         }
     }
 }
